@@ -30,7 +30,7 @@ A powerful Model Context Protocol (MCP) server that provides universal database 
 1. **Clone the repository**
 
 ```bash
-git clone <repository-url>
+git clone [<repository-url>](https://github.com/linlaz/mcp-database-query.git)
 cd mcp-database-query
 ```
 
