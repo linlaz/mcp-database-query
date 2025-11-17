@@ -172,8 +172,14 @@ def run_query(
     - Require user confirmation before executing update, delete, or create operations. Ensure the user understands the action being performed. If the user grants permission, automatically proceed but verify first
     - Always test UPDATE/DELETE queries with SELECT first to verify affected records
     """
+    
     print(f"Running query on {engine} database.")
     print(f"Query: {query}")
+    
+    dangerous_patterns = ['dropDatabase', 'dropCollection']
+    if any(pattern in query for pattern in dangerous_patterns):
+        return "Error: Dangerous operation detected. This operation is not allowed for security reasons."
+
     match engine:
         case "mysql":
             return mysql_execute_query(query)
